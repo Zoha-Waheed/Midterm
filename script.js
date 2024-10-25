@@ -1,15 +1,22 @@
 // Data for featured speakers
 const speakers = [
     {
-        name: "Yochai Benkler",
-        title: "Berkman Professor of Entrepreneurial Legal Studies at Harvard Law School",
-        image: "https://via.placeholder.com/100x100", // Replace with actual image URL
+        name: "Sylvia Plath",
+        title: "Robotics Professor of Arduino Studies at Harvard Robotics School",
+        image: "./images/girl.jpg", // Replace with actual image URL
+        
         description: "Benkler studies commons-based peer production, and published his seminal book The Wealth of Networks in 2006."
     },
     {
-        name: "SohYeong Noh",
-        title: "Director of Art Centre Nabi and a board member of CC Korea",
-        image: "https://via.placeholder.com/100x100", // Replace with actual image URL
+        name: "Zinkter John",
+        title: "Director of Robo Centre and a board member of IEEE",
+        image: "./images/uncle.jpg", // Replace with actual image URL
+        description: "As the main venue for new media art production in Korea, Nabi promotes cross-disciplinary collaboration and understanding among science, technology, humanities, and the arts."
+    },
+    {
+        name: "Sim Tonny",
+        title: "Director of Robotistics and vice president at RAS",
+        image: "./images/uncle.jpg", // Replace with actual image URL
         description: "As the main venue for new media art production in Korea, Nabi promotes cross-disciplinary collaboration and understanding among science, technology, humanities, and the arts."
     },
     // Add more speakers as needed
@@ -61,3 +68,24 @@ function loadSpeakers() {
 
 // Call the function when the window loads
 window.onload = loadSpeakers;
+
+function loadMoreSpeakers() {
+    const speakersSection = document.getElementById('featured-speakers');
+
+    speakers.forEach(speaker => {
+        const speakerCard = `
+            <div class="speaker-card">
+                <img src="${speaker.image}" alt="${speaker.name}'s picture">
+                <div class="speaker-info">
+                    <h2>${speaker.name}</h2>
+                    <h3>${speaker.title}</h3>
+                    <p>${speaker.description}</p>
+                </div>
+            </div>
+        `;
+        speakersSection.innerHTML += speakerCard;
+    });
+
+    // Hide the "Load More" button after displaying additional speakers
+    document.getElementById('more-btn').style.display = 'none';
+}
